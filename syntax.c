@@ -20,4 +20,13 @@ void getChar();
 void getNonBlank();
 int lex();
 
-/**/
+/*Character classes*/
+#define LETTER 0
+#define DIGIT 1
+#define UNKNOWN 99
+
+/*Token codes*/
+#define INT_LIT 10
+#define IDENT 11
+#define ASSIGN_OP 20
+#define ADD_OP 21
