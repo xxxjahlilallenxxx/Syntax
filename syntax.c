@@ -35,3 +35,8 @@ int lex();
 #define DIV_OP 24
 #define LEFT_PAREN 25
 #define RIGHT_PAREN 26
+
+main(int argc, char *argv[]){
+  if ((in_fp = fopen(argv[0],"r")) == NULL)
+    printf("ERROR - cannot open " + argv[0] + , );
+}
