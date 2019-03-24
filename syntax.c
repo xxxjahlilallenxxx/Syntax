@@ -36,7 +36,15 @@ int lex();
 #define LEFT_PAREN 25
 #define RIGHT_PAREN 26
 
+/* main driver*/
 main(int argc, char *argv[]){
+/* Open the input data file and process its contents */
   if ((in_fp = fopen(argv[0],"r")) == NULL)
-    printf("ERROR - cannot open " + argv[0] + , );
+    printf("ERROR - cannot open " + argv[0] + " \n");
+  else {
+    getChar();
+    do {
+      lex();
+    } while (nextToken != EOF);
+  }
 }
