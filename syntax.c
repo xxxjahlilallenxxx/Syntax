@@ -39,7 +39,7 @@ int lex();
 /* main driver*/
 main(int argc, char *argv[]){
 /* Open the input data file and process its contents */
-  if ((in_fp = fopen(argv[0],"r")) == NULL)
+  if ((in_fp = fopen(argv[1],"r")) == NULL)
     printf("ERROR - cannot open " + argv[0] + " \n");
   else {
     getChar();
