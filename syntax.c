@@ -48,3 +48,48 @@ main(int argc, char *argv[]){
     } while (nextToken != EOF);
   }
 }
+
+/* lookup - a function to lookup operators and parentheses and return the token */
+int lookup(char ch) {
+  switch(ch) {
+    case '(':
+      addChar();
+      nextToken = LEFT_PAREN;
+      break;
+    case ')':
+      addChar();
+      nextToken = RIGHT_PAREN;
+      break;
+    case '+':
+      addChar();
+      nextToken = ADD_OP;
+      break;
+    case '-':
+      addChar();
+      nextToken = SUB_OP;
+      break;
+    case '*':
+      addChar();
+      nextToken = MULT_OP;
+      break;
+    case '/':
+      addChar();
+      nextToken = DIV_OP;
+      break;
+    default:
+      addChar();
+      nextToken = EOF;
+      break;
+  }
+  return nextToken;
+}
+
+/**/
+void addChar() {
+  if (lexLen <= 98){
+    lexeme[lexLen++] = nextToken;
+    lexeme[lexLen] = 0;
+  }
+  else
+    printf("Error - lexeme is too long");
+}
