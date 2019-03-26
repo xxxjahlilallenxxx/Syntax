@@ -40,7 +40,7 @@ int lex();
 int main(int argc, char *argv[]){
 /* Open the input data file and process its contents */
   if ((in_fp = fopen(argv[1],"r")) == NULL)
-    printf("ERROR - cannot open " + argv[1] + " \n");
+    printf("ERROR - cannot open file \n");
   else {
     getChar();
     do {
