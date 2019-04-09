@@ -175,7 +175,7 @@ void term(){
     lex();
     factor();
   }
-  printf("Enter <term>\n");
+  printf("Exit <term>\n");
 }
 
 void factor(){
