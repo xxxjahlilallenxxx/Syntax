@@ -45,6 +45,7 @@ int main(int argc, char *argv[]){
     getChar();
     do {
       lex();
+      expr();
     } while (nextToken != EOF);
   }
 }
@@ -151,4 +152,50 @@ int lex(){
     }
     printf("Next token is: %d, Next lexeme is %s \n", nextToken, lexeme);
     return nextToken;
+}
+
+void expr(){
+  printf("Enter <expr>\n");
+  term();
+  while (nextToken == ADD_OP || nextToken == SUB_OP){
+    lex();
+    term();
+  }
+  printf("Exit <expr> \n");
+}
+
+void term(){
+  printf("Enter <term>\n");
+  factor();
+  while (nextToken == MULT_OP || nextToken == DIV_OP){
+    lex();
+    factor();
+  }
+  printf("Enter <term>\n");
+}
+
+void factor(){
+  printf("Enter <factor>\n");
+  if (nextToken == IDENT || nextToken == INT_LIT){
+    lex();
+  }
+  else{
+    if (nextToken == LEFT_PAREN){
+      lex();
+      expr();
+      if (nextToken == RIGHT_PAREN){
+        lex();
+      }
+      else{
+        error();
+      }
+    }
+    else{
+      error();
+    }
+  }
+}
+
+void error(){
+  printf("Error");
 }
