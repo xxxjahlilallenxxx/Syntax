@@ -19,6 +19,10 @@ void addChar();
 void getChar();
 void getNonBlank();
 int lex();
+void expr();
+void term();
+void factor();
+void error();
 
 /*Character classes*/
 #define LETTER 0
@@ -176,23 +180,19 @@ void term(){
 
 void factor(){
   printf("Enter <factor>\n");
-  if (nextToken == IDENT || nextToken == INT_LIT){
+  if (nextToken == IDENT || nextToken == INT_LIT)
     lex();
-  }
   else{
     if (nextToken == LEFT_PAREN){
       lex();
       expr();
-      if (nextToken == RIGHT_PAREN){
+      if (nextToken == RIGHT_PAREN)
         lex();
-      }
-      else{
+      else
         error();
-      }
     }
-    else{
+    else
       error();
-    }
   }
 }
 
