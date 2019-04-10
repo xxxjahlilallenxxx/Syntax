@@ -1,3 +1,4 @@
+#!/bin/bash
 parse(){
 	gcc syntax.c
 	gcc syntax.c -o syntax
